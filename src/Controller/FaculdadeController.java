@@ -62,6 +62,12 @@ public class FaculdadeController {
     // ===== Requisito 3 – Matricular aluno em disciplina =====
     public String matricularAluno(int matricula, String codigoDisciplina) {
 
+        if (buscarAluno(matricula) == null) {
+            System.out.println("Matricula negada:");
+            System.out.println("Aluno não encontrado");
+            return null;
+        }
+
         if (buscarMatriculaEmDisciplina(matricula, codigoDisciplina) != null) {
             System.out.println("Matricula negada:");
             System.out.println("Esse aluno já esta matriculado nessa disciplina!");
@@ -193,6 +199,18 @@ public class FaculdadeController {
         System.out.println("NOME DO ALUNO: " + aluno.getNome());
         System.out.println("SITUACAO: " + aluno.getSituacao());
         System.out.println();
+    }
+
+    // ===== Requisito 11 – Cadastrar Curso =====
+    public String cadastrarCurso(int idCurso, String nomeCurso) {
+        if (buscarCurso(nomeCurso) != null) {
+            System.out.println("Cadastro negado:");
+            System.out.println("Já existe um curso com esse nome!");
+            return null;
+        }
+        cursos.add(new Curso(idCurso, nomeCurso));
+        System.out.println("Curso cadastrado com sucesso!");
+        return null;
     }
 
     // ===== Métodos auxiliares (procuram nas listas) =====//verificado

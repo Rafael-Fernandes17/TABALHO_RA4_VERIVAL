@@ -52,4 +52,9 @@ public class Administrador {
         FaculdadeController sistemaFaculdade = FaculdadeController.getInstancia();
         sistemaFaculdade.buscarAlunoPorMatricula(matriculaAluno);
     };
+
+    public void cadastrarCurso(int idCurso, String nomeCurso){
+        FaculdadeController sistemaFaculdade = FaculdadeController.getInstancia();
+        sistemaFaculdade.cadastrarCurso(idCurso, nomeCurso);
+    };
 }
